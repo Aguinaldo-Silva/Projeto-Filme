@@ -1,0 +1,166 @@
+/* Estrutura geral do card (Mobile First) */
+.movie_card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 4.375rem auto;
+    overflow: hidden;
+    border-radius: 0.625rem;
+    transition: all 0.4s;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.movie_card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.movie_card .info_section {
+    position: relative;
+    z-index: 2;
+    padding: 1.25rem;
+    background: none;
+    text-align: center;
+}
+
+/* Cabeçalho do filme (Mobile First - empilhado) */
+.movie_header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.movie_header img.locandina {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 1.25rem -0.625rem rgba(0, 0, 0, 0.5);
+}
+
+.movie_info h1 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.movie_info h4 {
+    font-size: 1rem;
+    color: #9ac7fa;
+    margin-bottom: 0.625rem;
+}
+
+.movie_metadata {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.movie_metadata .minutes {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.movie_metadata .type {
+    display: inline-block;
+    color: #cee4fd;
+}
+
+/* Descrição do filme (Mobile First) */
+.movie_desc {
+    margin-top: 1.25rem;
+    text-align: center;
+}
+
+.movie_desc .text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #cfd6e1;
+}
+
+/* Ajustes de responsividade para telas maiores que 560px */
+@media screen and (min-width: 560px) {
+    .movie_card {
+        flex-direction: row;
+        max-width: 1000px;
+        margin: 100px auto;
+    }
+
+    .info_section {
+        text-align: left;
+        padding: 1.875rem;
+    }
+
+    .movie_header {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .movie_header img.locandina {
+        width: 160px;
+        margin-right: 1.875rem;
+    }
+
+    .movie_info h1 {
+        font-size: 2.5rem;
+        text-align: left;
+    }
+
+    .movie_info h4 {
+        font-size: 1.25rem;
+        text-align: left;
+    }
+
+    .movie_metadata {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 1rem;
+    }
+
+    .movie_metadata .minutes {
+        margin-right: 10px;
+    }
+
+    .movie_metadata .type {
+        text-align: left;
+    }
+
+    .movie_desc {
+        margin-top: 0;
+        padding-left: 30px;
+    }
+
+    .movie_desc .text {
+        font-size: 1.25rem;
+    }
+}
+
+/* Ajustes de responsividade para telas maiores que 768px */
+@media screen and (min-width: 768px) {
+    .movie_card {
+        width: 50rem;
+    }
+
+    .info_section {
+        padding: 2.5rem;
+    }
+
+    .movie_desc {
+        padding-left: 40px;
+    }
+
+    .movie_desc .text {
+        font-size: 1.25rem;
+    }
+}
