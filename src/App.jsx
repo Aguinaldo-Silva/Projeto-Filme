@@ -1,5 +1,5 @@
 import React from 'react';
-import { MovieList } from './MovieList.jsx';  // Importa a lista de filmes
+import { MovieList } from './MovieList.jsx'; 
 
 export function App() {
     return (

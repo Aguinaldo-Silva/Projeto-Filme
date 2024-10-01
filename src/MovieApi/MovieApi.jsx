@@ -9,7 +9,7 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 
 
 
-// Função para buscar filmes populares
+
 export const getMovies = async () => {
     try {
         const response = await fetch(`${BASE_URL}/discover/movie?include_adult=false&include_video=false&language=pt-BR&page=1&sort_by=popularity.desc`, API_KEY);
@@ -21,7 +21,7 @@ export const getMovies = async () => {
     }
 };
 
-// Função para buscar detalhes de um filme específico
+
 export const getMovieDetails = async (movieId) => {
     try {
         const response = await fetch(`${BASE_URL}/movie/${movieId}?&language=pt-BR`, API_KEY);

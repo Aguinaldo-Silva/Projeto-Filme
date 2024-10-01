@@ -1,4 +1,4 @@
-import styles from './card.module.css'
+import styles from './card.module.css';
 import React, { useState, useEffect } from 'react';
 import { getMovieDetails } from '../MovieApi/MovieApi';
 
@@ -8,27 +8,29 @@ export function Card({ movie }) {
     const [details, setDetails] = useState(null);
 
     useEffect(() => {
-        // Busca os detalhes do filme
-        const fetchMovieDetails = async () => {
-            const movieDetails = await getMovieDetails(movie.id);
-            setDetails(movieDetails);
+     
+        if (!movie.runtime) {
+            const fetchMovieDetails = async () => {
+                const movieDetails = await getMovieDetails(movie.id);
+                setDetails(movieDetails);
+            };
 
-        };
+            fetchMovieDetails();
+        } else {
+          
+            setDetails(movie);
+        }
+    }, [movie]);
 
-        fetchMovieDetails();
-    }, [movie.id]);
-
+   
     if (!details) return <div>Carregando...</div>;
-
-
-
 
     return (
         <div
             className={styles.movie_card}
-            style={{ backgroundImage: `url(${IMAGE_BASE_URL}${details.backdrop_path})` }}
+            style={{ backgroundImage: `url(${IMAGE_BASE_URL}${details.backdrop_path || movie.backdrop_path})` }}
         >
-            <div className={styles.overlay}></div> {/* Adicionar uma sobreposição escura */}
+            <div className={styles.overlay}></div>
             <div className={styles.info_section}>
                 <div className={styles.movie_header}>
                     <img
@@ -40,9 +42,13 @@ export function Card({ movie }) {
                         <h1>{movie.title}</h1>
                         <h4>{new Date(movie.release_date).getFullYear()}</h4>
                         <div className={styles.movie_metadata}>
-                            <span className={styles.minutes}>{details.runtime} Minutos</span>
+                            <span className={styles.minutes}>
+                                {details.runtime || movie.runtime} Minutos
+                            </span>
                             <p className={styles.type}>
-                                {details.genres.map((genre) => genre.name).join(', ')}
+                                {details.genres
+                                    ? details.genres.map((genre) => genre.name).join(', ')
+                                    : "Gêneros não disponíveis"}
                             </p>
                         </div>
                     </div>
@@ -55,7 +61,4 @@ export function Card({ movie }) {
             </div>
         </div>
     );
-
-
-
 }
