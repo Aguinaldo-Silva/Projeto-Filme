@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { App } from './App';
 import './index.css';
-import Details from './Details/Details';
+import Details from './Pages/Details/Details';
 
 
 const router = createBrowserRouter([
@@ -15,13 +15,13 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "details/:id", 
+    path: "details/:id",
     element: <Details />,
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
- 
-    <RouterProvider router={router} />
- 
+
+  <RouterProvider router={router} />
+
 );

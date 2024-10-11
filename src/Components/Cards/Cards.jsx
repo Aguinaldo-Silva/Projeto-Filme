@@ -1,6 +1,6 @@
 import styles from './card.module.css';
 import React, { useState, useEffect } from 'react';
-import { getMovieDetails } from '../MovieApi/MovieApi';
+import { getMovieDetails } from '../../MovieApi/MovieApi';
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -45,19 +45,11 @@ export function Card({ movie }) {
                             <span className={styles.minutes}>
                                 {details.runtime || movie.runtime} Minutos
                             </span>
-                            <p className={styles.type}>
-                                {details.genres
-                                    ? details.genres.map((genre) => genre.name).join(', ')
-                                    : "Gêneros não disponíveis"}
-                            </p>
+                            
                         </div>
                     </div>
                 </div>
-                <div className={styles.movie_desc}>
-                    <p className={styles.text}>
-                        {movie.overview}
-                    </p>
-                </div>
+                
             </div>
         </div>
     );
