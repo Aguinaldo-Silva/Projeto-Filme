@@ -1,6 +1,7 @@
 import React from 'react';
 import { MovieList } from './Pages/MovieList/MovieList.jsx';
 import Header from './Components/Header/Header.jsx'
+require('dotenv').config();
 
 export function App() {
     return (

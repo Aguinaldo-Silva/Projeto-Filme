@@ -7,6 +7,7 @@ import {
 import { App } from './App';
 import './index.css';
 import Details from './Pages/Details/Details';
+require('dotenv').config();
 
 
 const router = createBrowserRouter([
