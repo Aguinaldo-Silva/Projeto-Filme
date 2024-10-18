@@ -5,5 +5,5 @@ export  const API_KEY ={
         Authorization: `Bearer ${process.env.API_KEY}`
     }
 };
-export const BASE_URL = process.env.BASE_URL;
+export const BASE_URL = process.env.BASE_URL || 'https://api.themoviedb.org/3';
 
