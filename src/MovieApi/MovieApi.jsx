@@ -15,8 +15,8 @@ export const getMovies = async () => {
     }
 };
 
-console.log('BASE_URL:', process.env.BASE_URL || import.meta.env.VITE_BASE_URL);
-console.log('API_KEY:', process.env.API_KEY || import.meta.env.VITE_API_KEY);
+console.log('BASE_URL:', import.meta.env.VITE_BASE_URL);
+console.log('API_KEY:',  import.meta.env.VITE_API_KEY);
 
 
 export const getMovieDetails = async (movieId) => {
