@@ -16,7 +16,7 @@ export const getMovies = async () => {
 
 export const getMovieDetails = async (movieId) => {
     try {
-        const response = await fetch(`${BASE_URL}/movie/${movieId}?&language=pt-BR`, API_KEY);
+        const response = await fetch(`${process.env.BASE_URL}/movie/${movieId}?&language=pt-BR`, API_KEY);
         const data = await response.json();
         return data;
     } catch (error) {
