@@ -8,7 +8,6 @@ export function Card({ movie }) {
     const [details, setDetails] = useState(null);
 
     useEffect(() => {
-     
         if (!movie.runtime) {
             const fetchMovieDetails = async () => {
                 const movieDetails = await getMovieDetails(movie.id);
@@ -17,12 +16,17 @@ export function Card({ movie }) {
 
             fetchMovieDetails();
         } else {
-          
             setDetails(movie);
         }
     }, [movie]);
 
-   
+    const addToCart = () => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const updatedCart = [...cart, movie];
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        alert('Filme adicionado ao carrinho!');
+    };
+
     if (!details) return <div>Carregando...</div>;
 
     return (
@@ -45,11 +49,10 @@ export function Card({ movie }) {
                             <span className={styles.minutes}>
                                 {details.runtime || movie.runtime} Minutos
                             </span>
-                            
                         </div>
+                        <button onClick={addToCart} className={styles.add_to_cart}>Adicionar ao Carrinho</button>
                     </div>
                 </div>
-                
             </div>
         </div>
     );

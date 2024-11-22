@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
 import styles from './index.module.css';
-
 
 export default function Header() {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -26,15 +26,12 @@ export default function Header() {
             <Link style={{ textDecoration: 'none', color: "inherit" }} to={"/"}>
                 <h1>Site de Filmes</h1>
             </Link>
-            <label className={styles.switch}>
-                <button
-
-
-                    onClick={handleToggleTheme}
-                    placeholder='alterar cor'
-                >DARKMODE</button>
-                <span className={styles.slider}></span>
-            </label>
+            <div className={styles.actions}>
+                <button onClick={handleToggleTheme} placeholder='alterar cor'>DARKMODE</button>
+                <Link to="/carrinho" className={styles.cartIcon}>
+                    <FaShoppingCart size={24} />
+                </Link>
+            </div>
         </header>
     );
 }

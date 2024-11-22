@@ -7,6 +7,7 @@ import {
 import { App } from './App';
 import './index.css';
 import Details from './Pages/Details/Details';
+import Carrinho from './Pages/Carrinho/Carrinho';
 
 
 
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "details/:id",
     element: <Details />,
+  },
+  {
+    path: "carrinho", 
+    element: <Carrinho />,
   },
 ]);
 
